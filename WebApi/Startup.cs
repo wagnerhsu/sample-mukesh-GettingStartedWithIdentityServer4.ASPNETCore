@@ -29,7 +29,8 @@ namespace WebApi
                 .AddIdentityServerAuthentication("Bearer", options =>
                 {
                     options.ApiName = "myApi";
-                    options.Authority = "https://localhost:44322";
+                    options.RequireHttpsMetadata = false;
+                    options.Authority = Configuration["IdentityServer:Authority"];
 
                 });
             services.AddControllers();
